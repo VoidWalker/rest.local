@@ -14,8 +14,10 @@ class Api
             array("Content-type: application/json"));
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $content);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($curl);
         curl_close($curl);
+        var_dump(json_decode($result));
     }
 }
 
